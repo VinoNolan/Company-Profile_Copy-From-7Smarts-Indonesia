@@ -1,0 +1,1376 @@
+*,
+body,
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: 0;
+  /* Consider changing to border-box for better box model */
+  text-decoration: none;
+  list-style: none;
+  scroll-behavior: smooth;
+  /* Smooth scrolling for anchor links */
+}
+
+/* Base body font - can be changed to brand font if needed */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* Main container wrapper */
+.container {
+  height: 100vh;
+  max-width: 100vw;
+}
+
+/* ========================================
+   NAVIGATION BAR
+   Fixed header with brand logo and dropdown menus
+   ======================================== */
+.icon-brand {
+  padding: 10px;
+  margin-left: 100px;
+}
+
+.icon-brand img {
+  width: 140px;
+}
+
+.container-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 0 20px;
+  position: fixed;
+  /* Ubah menjadi fixed */
+  top: 0;
+  /* Atur posisi dari atas */
+  left: 0;
+  /* Atur posisi dari kiri */
+  width: 100%;
+  /* Pastikan lebar 100% */
+  z-index: 1000;
+  /* Pastikan navbar di atas elemen lain */
+  border-bottom: solid 1px #474747;
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 100px;
+  position: relative;
+}
+
+.navbar li a {
+  padding: 15px 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: black;
+}
+
+/* --- Dropdown Menu Styles --- */
+/* Hidden by default, shown on parent hover with smooth transition */
+.dropdown {
+  visibility: hidden;
+  margin-top: 10px;
+  background: white;
+  position: absolute;
+  z-index: 999;
+  opacity: 0;
+  box-shadow: 1px 1px 5px #474747;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+
+.dropdown li {
+  padding: 12px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown li a {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.dropdown li:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.navbar li:hover .dropdown {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* --- End of Dropdown Menu --- */
+/* ======================================== END OF NAVBAR ======================================== */
+
+
+/* ========================================
+   JUMBOTRON & FEATURE CARDS
+   Hero section with blue background and floating cards
+   ======================================== */
+.container-content {
+  background-color: #1e8bff;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* --- Jumbotron Hero Section --- */
+.jumbotron {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.jumb-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  padding: 0 100px;
+  color: white;
+  gap: 20px;
+}
+
+.jumb-txt h3 {
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.jumb-txt p {
+  font-size: 17px;
+}
+
+.jumb-txt button {
+  border: 0;
+  font-size: 15px;
+  padding: 17px 35px;
+  background-color: #ff8916;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  transition: color 0.3s ease-in-out;
+}
+
+.jumb-txt button:hover {
+  color: black;
+}
+
+.jumb-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+
+/* --- End of Jumbotron --- */
+
+
+/* --- Feature Cards Section --- */
+/* Cards positioned absolutely to overlap jumbotron */
+.dummy-container-card {
+  height: 50vh;
+  position: relative;
+  padding: 25px 0;
+}
+
+.card-container {
+  position: absolute;
+  top: -15vh;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 25px 100px;
+  gap: 25px;
+}
+
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  padding: 25px;
+  gap: 20px;
+  box-shadow: 1px 1px 4px #474747;
+}
+
+.card h5 {
+  font-size: 21px;
+  color: #474747;
+}
+
+.card p {
+  font-size: 14px;
+  color: #474747;
+}
+
+.card img {
+  opacity: 0.8;
+}
+
+/* --- End of Feature Cards --- */
+/* ======================================== END OF JUMBOTRON & CARDS ======================================== */
+
+
+/* ========================================
+   CLIENT SECTION
+   Responsive grid layout for company logos with hover effects
+   ======================================== */
+.container-client {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 80px 50px;
+  min-height: auto;
+  max-width: 100vw;
+  overflow: hidden;
+}
+
+.client-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.container-client h2 {
+  color: #474747;
+  font-size: 38px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.client-subtitle {
+  color: #63666e;
+  font-size: 17px;
+  margin: 0;
+  font-weight: 400;
+}
+
+.client-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #1e8bff 0%, #ff8916 100%);
+  margin: 20px auto 0;
+  border-radius: 2px;
+}
+
+.client {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.client-item {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 140px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.client-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #1e8bff 0%, #ff8916 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.client-item:hover::before {
+  transform: scaleX(1);
+}
+
+.client-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.client-item img {
+  max-width: 100%;
+  max-height: 80px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.7);
+  transition: all 0.3s ease;
+}
+
+.client-item:hover img {
+  filter: grayscale(0%) opacity(1);
+  transform: scale(1.05);
+}
+
+/* --- Responsive Breakpoints for Client Section --- */
+@media (max-width: 1024px) {
+  .client {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .client {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .container-client {
+    padding: 60px 30px;
+  }
+
+  .container-client h2 {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 480px) {
+  .client {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ======================================== END OF CLIENT SECTION ======================================== */
+
+
+/* ========================================
+   LAYANAN (SERVICES)
+   Three-column grid displaying service offerings
+   ======================================== */
+.container-layanan {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  padding: 100px 50px;
+  gap: 30px;
+}
+
+.layanan {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.layanan-item {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  border-radius: 12px;
+  box-shadow: 1px 1px 5px #474747;
+  border-top: solid 8px #1e8bff;
+  padding: 25px 15px;
+  gap: 20px;
+}
+
+.layanan-item img {
+  opacity: 0.9;
+}
+
+.layanan span {
+  color: #ff8916;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.layanan p {
+  color: #474747;
+  font-size: 17px;
+}
+
+.layanan h2 {
+  color: #474747;
+  font-size: 38px;
+}
+
+.layanan-item h5 {
+  font-size: 21px;
+}
+
+.layanan-item p {
+  font-size: 14px;
+}
+
+/* ======================================== END OF LAYANAN ======================================== */
+
+
+/* ========================================
+   ALUR BISNIS (BUSINESS FLOW)
+   6-step process visualization with numbered badges
+   ======================================== */
+.container-alur {
+  background-color: #63666e25;
+  padding: 50px;
+}
+
+.alur-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.alur-head p {
+  color: #ff8916;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.alur-head h2 {
+  color: #474747;
+  font-size: 38px;
+}
+
+.alur-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 50px;
+}
+
+.alur-grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.alur-grid-item h5 {
+  font-size: 21px;
+  color: #474747;
+}
+
+.alur-grid-item p {
+  font-size: 14px;
+  color: #474747;
+}
+
+.banner-angka {
+  background-color: #1e8bff;
+  padding: 12px;
+  color: white;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.alur-foot {
+  text-align: center;
+}
+
+.alur-foot button {
+  border: 0;
+  font-size: 15px;
+  padding: 17px 35px;
+  background-color: #ff8916;
+  border-radius: 12px;
+  color: white;
+  font-weight: 700;
+  transition: color 0.3s ease-in-out;
+}
+
+.alur-foot button:hover {
+  color: black;
+}
+
+/* ======================================== END OF ALUR BISNIS ======================================== */
+
+
+/* ========================================
+   CONTACT SECTION
+   Contact information grid with Google Maps embed
+   ======================================== */
+.container-contact {
+  background: white;
+  padding: 50px;
+}
+
+.contact-head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
+.contact-head p {
+  color: #ff8916;
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.contact-head h2 {
+  color: #474747;
+  font-size: 38px;
+}
+
+.grid-contact {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.grid-item-contact {
+  padding: 20px 10px;
+}
+
+.grid-item-contact iframe {
+  height: 300px;
+}
+
+.grid-item-contact ul li {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.grid-item-contact img {
+  height: 45px;
+}
+
+li span {
+  font-weight: 600;
+}
+
+/* ======================================== END OF CONTACT SECTION ======================================== */
+
+
+/* ========================================
+   KUNJUNGAN (VISIT GALLERY)
+   Image gallery with hover zoom effects
+   ======================================== */
+.container-kunjungan {
+  background-color: #f8f9fa;
+  padding: 80px 50px;
+  margin-top: 80px;
+}
+
+.kunjungan-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 60px;
+}
+
+.kunjungan-header h2 {
+  color: #474747;
+  font-size: 38px;
+  text-align: center;
+}
+
+.kunjungan-header p {
+  color: #63666e;
+  font-size: 17px;
+  text-align: center;
+  max-width: 700px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  padding: 0 50px;
+}
+
+.gallery-item {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-image {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image img {
+  transform: scale(1.08);
+}
+
+.gallery-caption {
+  padding: 25px;
+  background-color: white;
+}
+
+.gallery-caption p {
+  color: #474747;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* ======================================== END OF KUNJUNGAN GALLERY ======================================== */
+
+
+/* ========================================
+   ARTIKEL (ARTICLES/BLOG)
+   Blog cards with categories, images, and meta information
+   ======================================== */
+.container-artikel {
+  background-color: white;
+  padding: 80px 50px;
+  margin-top: 80px;
+}
+
+.artikel-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 60px;
+}
+
+.artikel-header h2 {
+  color: #474747;
+  font-size: 38px;
+  text-align: center;
+}
+
+.artikel-header p {
+  color: #63666e;
+  font-size: 17px;
+  text-align: center;
+  max-width: 700px;
+}
+
+.artikel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 35px;
+  padding: 0 50px;
+}
+
+.artikel-card {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+.artikel-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.artikel-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+}
+
+.artikel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.artikel-card:hover .artikel-image img {
+  transform: scale(1.1);
+}
+
+.artikel-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex-grow: 1;
+}
+
+.artikel-category {
+  display: inline-block;
+  background-color: #1e8bff;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: fit-content;
+}
+
+.artikel-content h3 {
+  color: #474747;
+  font-size: 19px;
+  line-height: 1.4;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.artikel-card:hover .artikel-content h3 {
+  color: #1e8bff;
+}
+
+.artikel-content p {
+  color: #63666e;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.artikel-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  border-top: 1px solid #e9ecef;
+  margin-top: auto;
+}
+
+.artikel-date {
+  color: #63666e;
+  font-size: 13px;
+}
+
+.artikel-link {
+  color: #1e8bff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.artikel-link:hover {
+  color: #ff8916;
+}
+
+/* ======================================== END OF ARTIKEL SECTION ======================================== */
+
+
+/* ========================================
+   TESTIMONI (TESTIMONIALS)
+   Client testimonials with ratings and avatar images
+   ======================================== */
+.container-testimoni {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  padding: 80px 50px;
+  margin-top: 80px;
+}
+
+.testimoni-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 60px;
+}
+
+.testimoni-header h2 {
+  color: #474747;
+  font-size: 38px;
+  text-align: center;
+}
+
+.testimoni-header p {
+  color: #63666e;
+  font-size: 17px;
+  text-align: center;
+  max-width: 800px;
+  line-height: 1.6;
+}
+
+/* --- Featured Testimonial (Large Format) --- */
+.testimoni-featured {
+  max-width: 1000px;
+  margin: 0 auto 60px;
+  position: relative;
+}
+
+.featured-card {
+  background: white;
+  border-radius: 20px;
+  padding: 50px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #1e8bff 0%, #ff8916 100%);
+}
+
+.featured-quote {
+  margin-bottom: 25px;
+  opacity: 0.3;
+}
+
+.featured-content {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.featured-text {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #474747;
+  font-style: italic;
+  margin: 0;
+}
+
+.featured-author {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.featured-author img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #1e8bff;
+}
+
+.author-info h4 {
+  margin: 0 0 5px 0;
+  color: #474747;
+  font-size: 20px;
+}
+
+.author-info p {
+  margin: 0 0 10px 0;
+  color: #63666e;
+  font-size: 14px;
+}
+
+.rating {
+  display: flex;
+  gap: 3px;
+}
+
+.rating span {
+  font-size: 16px;
+}
+
+/* --- Grid Testimonials (Multiple Cards) --- */
+.testimoni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 0 50px;
+}
+
+.testimoni-card {
+  background: white;
+  border-radius: 16px;
+  padding: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimoni-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #1e8bff 0%, #ff8916 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.testimoni-card:hover::before {
+  opacity: 1;
+}
+
+.testimoni-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.testimoni-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid #1e8bff;
+  box-shadow: 0 4px 10px rgba(30, 139, 255, 0.2);
+}
+
+.testimoni-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.testimoni-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.testimoni-content .rating {
+  margin-bottom: 5px;
+}
+
+.testimoni-text {
+  color: #474747;
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0;
+  flex-grow: 1;
+  font-style: italic;
+}
+
+.testimoni-author {
+  border-top: 1px solid #e9ecef;
+  padding-top: 15px;
+}
+
+.testimoni-author h4 {
+  margin: 0 0 5px 0;
+  color: #474747;
+  font-size: 16px;
+}
+
+.testimoni-author p {
+  margin: 0;
+  color: #63666e;
+  font-size: 13px;
+}
+
+/* --- Responsive Breakpoints for Testimonials --- */
+@media (max-width: 1024px) {
+  .testimoni-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimoni-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-card {
+    padding: 30px;
+  }
+
+  .featured-text {
+    font-size: 18px;
+  }
+}
+
+/* ======================================== END OF TESTIMONI SECTION ======================================== */
+
+
+/* ========================================
+   SEJARAH PERUSAHAAN (COMPANY HISTORY)
+   Two-column layout with timeline and sticky image
+   ======================================== */
+.container-sejarah {
+  background-color: white;
+  padding: 80px 50px;
+  margin-top: 80px;
+}
+
+.sejarah-content {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.sejarah-text h2 {
+  color: #474747;
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.sejarah-divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #1e8bff 0%, #ff8916 100%);
+  margin-bottom: 40px;
+}
+
+.sejarah-paragraph {
+  margin-bottom: 35px;
+}
+
+.sejarah-paragraph h3 {
+  color: #1e8bff;
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.sejarah-paragraph p {
+  color: #63666e;
+  font-size: 16px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.sejarah-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 50px;
+  padding: 30px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 12px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h4 {
+  color: #1e8bff;
+  font-size: 36px;
+  margin: 0 0 10px 0;
+}
+
+.stat-item p {
+  color: #474747;
+  font-size: 14px;
+  margin: 0;
+}
+
+.sejarah-image {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  height: fit-content;
+  position: sticky;
+  top: 100px;
+}
+
+.sejarah-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+  padding: 30px;
+  color: white;
+}
+
+.image-overlay h3 {
+  margin: 0;
+  font-size: 22px;
+}
+
+@media (max-width: 1024px) {
+  .sejarah-content {
+    grid-template-columns: 1fr;
+  }
+
+  .sejarah-image {
+    position: relative;
+    top: 0;
+  }
+
+  .sejarah-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ======================================== END OF SEJARAH PERUSAHAAN ======================================== */
+
+
+/* ========================================
+   VISI MISI (VISION & MISSION)
+   Side-by-side vision/mission cards with numbered mission items
+   ======================================== */
+.container-visi-misi {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  padding: 80px 50px;
+  margin-top: 80px;
+}
+
+.visi-misi-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.visi-misi-header h2 {
+  color: #474747;
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.visi-misi-header p {
+  color: #63666e;
+  font-size: 18px;
+}
+
+.visi-misi-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  max-width: 1400px;
+  margin: 0 auto 80px;
+}
+
+.visi-section,
+.misi-section {
+  background: white;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.visi-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #1e8bff 0%, #0066cc 100%);
+}
+
+.misi-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, #ff8916 0%, #cc6e12 100%);
+}
+
+.vm-icon {
+  margin-bottom: 20px;
+}
+
+.visi-section h3,
+.misi-section h3 {
+  color: #474747;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.vm-divider {
+  width: 60px;
+  height: 3px;
+  background: #1e8bff;
+  margin-bottom: 25px;
+}
+
+.misi-section .vm-divider {
+  background: #ff8916;
+}
+
+.visi-section p {
+  color: #63666e;
+  font-size: 17px;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.misi-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.misi-item {
+  display: flex;
+  gap: 20px;
+  align-items: start;
+}
+
+.misi-number {
+  min-width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #ff8916 0%, #cc6e12 100%);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.misi-item p {
+  color: #63666e;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+  padding-top: 8px;
+}
+
+/* --- Core Values Section --- */
+/* 4 value cards with emoji icons and hover effects */
+.values-section {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.values-section h3 {
+  color: #474747;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.value-card {
+  background: white;
+  padding: 35px 25px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid transparent;
+}
+
+.value-card:nth-child(1) {
+  border-top-color: #1e8bff;
+}
+
+.value-card:nth-child(2) {
+  border-top-color: #ff8916;
+}
+
+.value-card:nth-child(3) {
+  border-top-color: #1e8bff;
+}
+
+.value-card:nth-child(4) {
+  border-top-color: #ff8916;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.value-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+.value-card h4 {
+  color: #474747;
+  font-size: 20px;
+  margin: 0 0 10px 0;
+}
+
+.value-card p {
+  color: #63666e;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1024px) {
+  .visi-misi-content {
+    grid-template-columns: 1fr;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .values-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ======================================== END OF VISI MISI SECTION ======================================== */
+
+
+/* ========================================
+   FOOTER
+   Simple centered copyright footer
+   ======================================== */
+.container-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(3, 4, 32);
+  padding: 25px;
+}
+
+.container-footer p {
+  color: white;
+}
+
+/* ======================================== END OF FOOTER ======================================== */
