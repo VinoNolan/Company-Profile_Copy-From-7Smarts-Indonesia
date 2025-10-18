@@ -3,12 +3,10 @@ body,
 html {
   padding: 0;
   margin: 0;
-  box-sizing: 0;
-  /* Consider changing to border-box for better box model */
+  box-sizing: border-box;
   text-decoration: none;
   list-style: none;
   scroll-behavior: smooth;
-  /* Smooth scrolling for anchor links */
 }
 
 /* Base body font - can be changed to brand font if needed */
@@ -18,8 +16,9 @@ body {
 
 /* Main container wrapper */
 .container {
-  height: 100vh;
+  min-height: 100vh;
   max-width: 100vw;
+  overflow-x: hidden;
 }
 
 /* ========================================
@@ -33,6 +32,37 @@ body {
 
 .icon-brand img {
   width: 140px;
+}
+
+/* Mobile Menu Toggle Button */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 10px;
+  margin-right: 20px;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: #474747;
+  margin: 3px 0;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -6px);
 }
 
 .container-navbar {
@@ -106,6 +136,106 @@ body {
 }
 
 /* --- End of Dropdown Menu --- */
+
+/* ========================================
+   RESPONSIVE NAVBAR FOR MOBILE
+   ======================================== */
+@media (max-width: 1024px) {
+  .icon-brand {
+    margin-left: 20px;
+  }
+
+  .navbar {
+    margin-right: 20px;
+  }
+
+  .navbar li a {
+    font-size: 0.85rem;
+    padding: 12px 6px;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .icon-brand {
+    margin-left: 10px;
+  }
+
+  .icon-brand img {
+    width: 120px;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: calc(100vh - 70px);
+    background-color: white;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 0;
+    margin: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    z-index: 999;
+  }
+
+  .navbar.active {
+    left: 0;
+  }
+
+  .navbar li {
+    width: 100%;
+    border-bottom: 1px solid #e9ecef;
+  }
+
+  .navbar li a {
+    display: block;
+    padding: 15px 20px;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .dropdown {
+    position: static;
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: none;
+    margin: 0;
+    padding-left: 20px;
+    background-color: #f8f9fa;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    pointer-events: auto;
+  }
+
+  .navbar li.active .dropdown {
+    max-height: 500px;
+  }
+
+  .dropdown li {
+    border-bottom: none;
+  }
+
+  .dropdown li a {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .navbar li:hover .dropdown {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
 /* ======================================== END OF NAVBAR ======================================== */
 
 
@@ -216,6 +346,90 @@ body {
 }
 
 /* --- End of Feature Cards --- */
+
+/* ========================================
+   RESPONSIVE JUMBOTRON & CARDS
+   ======================================== */
+@media (max-width: 1024px) {
+  .jumb-txt {
+    padding: 0 50px;
+  }
+
+  .jumb-txt h3 {
+    font-size: 26px;
+  }
+
+  .jumb-txt p {
+    font-size: 15px;
+  }
+
+  .card-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 25px 50px;
+    top: -10vh;
+  }
+
+  .dummy-container-card {
+    height: auto;
+    min-height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-content {
+    height: auto;
+    min-height: 100vh;
+    padding: 80px 0 50px;
+  }
+
+  .jumbotron {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .jumb-txt {
+    padding: 20px 30px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .jumb-txt h3 {
+    font-size: 24px;
+  }
+
+  .jumb-txt p {
+    font-size: 14px;
+  }
+
+  .jumb-txt button {
+    padding: 15px 30px;
+    font-size: 14px;
+  }
+
+  .jumb-img {
+    align-items: center;
+    padding: 0 30px;
+  }
+
+  .jumb-img img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .card-container {
+    position: relative;
+    top: 0;
+    grid-template-columns: 1fr;
+    padding: 25px 20px;
+    margin-top: 20px;
+  }
+
+  .dummy-container-card {
+    height: auto;
+    padding: 0;
+  }
+}
+
 /* ======================================== END OF JUMBOTRON & CARDS ======================================== */
 
 
@@ -409,6 +623,42 @@ body {
   font-size: 14px;
 }
 
+/* ========================================
+   RESPONSIVE LAYANAN
+   ======================================== */
+@media (max-width: 1024px) {
+  .container-layanan {
+    grid-template-columns: 1fr 1fr;
+    padding: 80px 40px;
+  }
+
+  .layanan:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-layanan {
+    grid-template-columns: 1fr;
+    padding: 60px 30px;
+    gap: 40px;
+  }
+
+  .layanan:first-child {
+    grid-column: 1;
+  }
+
+  .layanan h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .layanan span,
+  .layanan p {
+    text-align: center;
+  }
+}
+
 /* ======================================== END OF LAYANAN ======================================== */
 
 
@@ -493,6 +743,42 @@ body {
   color: black;
 }
 
+/* ========================================
+   RESPONSIVE ALUR BISNIS
+   ======================================== */
+@media (max-width: 1024px) {
+  .alur-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-alur {
+    padding: 40px 20px;
+  }
+
+  .alur-head h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .alur-head p {
+    text-align: center;
+  }
+
+  .alur-grid {
+    grid-template-columns: 1fr;
+    padding: 30px 20px;
+    gap: 25px;
+  }
+
+  .alur-foot button {
+    padding: 15px 30px;
+    font-size: 14px;
+  }
+}
+
 /* ======================================== END OF ALUR BISNIS ======================================== */
 
 
@@ -553,6 +839,45 @@ body {
 
 li span {
   font-weight: 600;
+}
+
+/* ========================================
+   RESPONSIVE CONTACT SECTION
+   ======================================== */
+@media (max-width: 1024px) {
+  .grid-contact {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-contact {
+    padding: 40px 20px;
+  }
+
+  .contact-head h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .contact-head p {
+    text-align: center;
+  }
+
+  .grid-contact {
+    padding: 20px 0;
+  }
+
+  .grid-item-contact iframe {
+    width: 100%;
+    height: 250px;
+  }
+
+  .grid-item-contact ul li {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
 }
 
 /* ======================================== END OF CONTACT SECTION ======================================== */
@@ -639,6 +964,42 @@ li span {
   font-size: 15px;
   line-height: 1.6;
   margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE KUNJUNGAN GALLERY
+   ======================================== */
+@media (max-width: 1024px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-kunjungan {
+    padding: 60px 20px;
+    margin-top: 60px;
+  }
+
+  .kunjungan-header h2 {
+    font-size: 32px;
+  }
+
+  .kunjungan-header p {
+    font-size: 15px;
+    padding: 0 20px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 25px;
+  }
+
+  .gallery-image {
+    height: 220px;
+  }
 }
 
 /* ======================================== END OF KUNJUNGAN GALLERY ======================================== */
@@ -782,6 +1143,52 @@ li span {
 
 .artikel-link:hover {
   color: #ff8916;
+}
+
+/* ========================================
+   RESPONSIVE ARTIKEL
+   ======================================== */
+@media (max-width: 1024px) {
+  .artikel-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-artikel {
+    padding: 60px 20px;
+    margin-top: 60px;
+  }
+
+  .artikel-header h2 {
+    font-size: 32px;
+  }
+
+  .artikel-header p {
+    font-size: 15px;
+    padding: 0 20px;
+  }
+
+  .artikel-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 25px;
+  }
+
+  .artikel-image {
+    height: 200px;
+  }
+
+  .artikel-content {
+    padding: 20px;
+  }
+
+  .artikel-meta {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
 }
 
 /* ======================================== END OF ARTIKEL SECTION ======================================== */
@@ -1001,15 +1408,49 @@ li span {
 }
 
 @media (max-width: 768px) {
+  .container-testimoni {
+    padding: 60px 20px;
+    margin-top: 60px;
+  }
+
+  .testimoni-header h2 {
+    font-size: 32px;
+  }
+
+  .testimoni-header p {
+    font-size: 15px;
+    padding: 0 20px;
+  }
+
   .testimoni-grid {
     grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 20px;
+  }
+
+  .testimoni-featured {
+    padding: 0 20px;
   }
 
   .featured-card {
-    padding: 30px;
+    padding: 30px 20px;
   }
 
   .featured-text {
+    font-size: 16px;
+  }
+
+  .featured-author {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .featured-author img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .author-info h4 {
     font-size: 18px;
   }
 }
@@ -1136,6 +1577,46 @@ li span {
 
   .sejarah-stats {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .container-sejarah {
+    padding: 60px 20px;
+    margin-top: 60px;
+  }
+
+  .sejarah-text h2 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .sejarah-divider {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .sejarah-paragraph h3 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .sejarah-paragraph p {
+    font-size: 15px;
+  }
+
+  .sejarah-stats {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .stat-item h4 {
+    font-size: 28px;
+  }
+
+  .stat-item p {
+    font-size: 12px;
   }
 }
 
@@ -1349,8 +1830,54 @@ li span {
 }
 
 @media (max-width: 768px) {
+  .container-visi-misi {
+    padding: 60px 20px;
+    margin-top: 60px;
+  }
+
+  .visi-misi-header h2 {
+    font-size: 32px;
+  }
+
+  .visi-misi-header p {
+    font-size: 16px;
+  }
+
+  .visi-misi-content {
+    gap: 30px;
+    margin-bottom: 50px;
+  }
+
+  .visi-section,
+  .misi-section {
+    padding: 30px 20px;
+  }
+
+  .visi-section h3,
+  .misi-section h3 {
+    font-size: 26px;
+  }
+
+  .visi-section p {
+    font-size: 15px;
+    text-align: left;
+  }
+
+  .misi-item {
+    gap: 15px;
+  }
+
+  .misi-item p {
+    font-size: 14px;
+  }
+
+  .values-section h3 {
+    font-size: 26px;
+  }
+
   .values-grid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
 }
 
@@ -1373,4 +1900,62 @@ li span {
   color: white;
 }
 
+/* ========================================
+   RESPONSIVE FOOTER
+   ======================================== */
+@media (max-width: 768px) {
+  .container-footer {
+    padding: 20px 15px;
+  }
+
+  .container-footer p {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
 /* ======================================== END OF FOOTER ======================================== */
+
+/* ========================================
+   GLOBAL MOBILE UTILITIES
+   ======================================== */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 28px !important;
+  }
+
+  h3 {
+    font-size: 22px !important;
+  }
+
+  h4 {
+    font-size: 18px !important;
+  }
+
+  h5 {
+    font-size: 16px !important;
+  }
+
+  p {
+    font-size: 14px !important;
+  }
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+
+  a,
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
