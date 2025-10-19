@@ -45,3 +45,7 @@ Pemilihan teknologi ini dilakukan agar fokus pada penguasaan dasar frontend tanp
    ```bash
    git clone https://github.com/VinoNolan/Company-Profile_Copy-From-7Smarts-Indonesia.git
    ```
+
+## ● Deployment
+
+https://companyprofile-capstoneproject.netlify.app/
